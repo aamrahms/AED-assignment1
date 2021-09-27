@@ -1,7 +1,7 @@
 # AED-assignment1
 AED assignment 1
 
-##Student Details
+## Student Details
 Name     : Aamrah Aamrah
 
 Email    : aamrah.a@northeastern.edu
