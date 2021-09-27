@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="tel" pref="196" max="32767" attributes="0"/>
+                                  <Component id="fax" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ttel" max="32767" attributes="0"/>
+                                  <Component id="tfax" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="email" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                                  <Component id="geo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ssn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="medical" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="health" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bank" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="licenseno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="licenseplate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="device" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="linkedin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ip" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="photo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="tgeo" max="32767" attributes="0"/>
+                                  <Component id="temail" max="32767" attributes="0"/>
+                                  <Component id="tssn" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tmedical" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="thealth" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tbank" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tlicenseno" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tlicenseplate" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tdevice" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tlinkedin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tip" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tphoto" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Name" min="-2" pref="196" max="-2" attributes="0"/>
+                                          <Component id="dob" min="-2" pref="178" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tname" min="-2" pref="292" max="-2" attributes="0"/>
+                                          <Component id="tdob" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="unique" min="-2" pref="159" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                                      <Component id="tunique" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
+                              <Component id="label" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
+                              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="label" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tname" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dob" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tdob" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ttel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fax" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfax" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="temail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="geo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tgeo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="ssn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tssn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="medical" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tmedical" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="health" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="thealth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="bank" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tbank" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="licenseno" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="tlicenseno" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="licenseplate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tlicenseplate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="device" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="tdevice" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="linkedin" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="tlinkedin" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ip" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tip" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="photo" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="tphoto" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="unique" alignment="3" pref="46" max="32767" attributes="0"/>
+                  <Component id="tunique" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Create"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="dob">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date of Birth"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telephone Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="fax">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fax number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="email">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Email "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="geo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Geographic data"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ssn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SSN"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="medical">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Medical Record Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="health">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Health Plan beneficiary number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="bank">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bank account number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="licenseno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Certificate/license number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="licenseplate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="License Plate Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="device">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Device identifiers"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="linkedin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LinkedIn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ip">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Internet protocol address"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="photo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Full face photo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="unique">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Any unique identifying characteristic"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tname">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tnameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tdob">
+    </Component>
+    <Component class="javax.swing.JTextField" name="ttel">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfax">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfaxActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="temail">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="temailActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tgeo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tssn">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tssnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tmedical">
+    </Component>
+    <Component class="javax.swing.JTextField" name="thealth">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tbank">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tlicenseno">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tlicenseplate">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tlicenseplateActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tdevice">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tdeviceActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tlinkedin">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tip">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tphoto">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tunique">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSave">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
