@@ -1,0 +1,4 @@
+Toyota,Camry,1920,12345,A12,Riyadh,01-01-1999,4
+Hyundai,Elantra,1999,24356,Z66,Chicago,01-01-2011,5
+Toyota,Cressida,1980,6543,Z11,Riyadh,01-01-1980,6
+Honda,Centro,2015,7655,V20,Boston,01-01-2020,6
