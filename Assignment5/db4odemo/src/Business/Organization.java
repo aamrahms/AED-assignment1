@@ -24,12 +24,13 @@ public abstract class Organization {
     private static int counter=0;
     
     public enum Type{
+        //Defined absolute values of organisation, each role
         RestaurantAdmin("RestaurantAdmin"),
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin");
         
-        private String value;
+        private String value;//inside bracs value
         private Type(String value) {
             this.value = value;
         }

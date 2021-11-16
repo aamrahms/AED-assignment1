@@ -60,6 +60,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jTree.setForeground(new java.awt.Color(255, 153, 153));
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -83,6 +84,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane.setLeftComponent(jPanel1);
+
+        jPanel2.setForeground(new java.awt.Color(204, 0, 0));
+        jPanel2.setToolTipText("");
 
         jLabel1.setText("Selected Node:");
 

@@ -60,6 +60,12 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameJTextFieldActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("User Name");
 
         jLabel2.setText("Password");
@@ -113,6 +119,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jPanel1);
 
+        container.setForeground(new java.awt.Color(204, 204, 204));
         container.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(container);
 
@@ -123,6 +130,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
+        String username=userNameJTextField.getText();
+        String password=passwordField.getText();
+        UserAccount user= system.getUserAccountDirectory().authenticateUser(username,password);
+        CardLayout cardlayout= (CardLayout) container.getLayout();
+        container.add("Login",user.getRole().createWorkArea(container, user, system));
+        cardlayout.next(container);
+        logoutJButton.setEnabled(true);
+        
        
     }//GEN-LAST:event_loginJButtonActionPerformed
 
@@ -142,6 +157,10 @@ public class MainJFrame extends javax.swing.JFrame {
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_logoutJButtonActionPerformed
+
+    private void userNameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameJTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
