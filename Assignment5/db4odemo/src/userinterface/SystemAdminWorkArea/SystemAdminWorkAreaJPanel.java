@@ -60,7 +60,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jTree.setBackground(new java.awt.Color(255, 102, 102));
         jTree.setForeground(new java.awt.Color(255, 153, 153));
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
@@ -157,15 +156,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-       
+       ManageAllCustomersJPanel customerPanel= new ManageAllCustomersJPanel(userProcessContainer, ecosystem);
+       userProcessContainer.add("ManageAllCustomers",customerPanel);
+       CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+       cardlayout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        
+        ManageRestaurantsJPanel restaurantPanel= new ManageRestaurantsJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("ManageRestaurants",restaurantPanel);
+        CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
     private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
-       
+       ManageDeliverManJPanel deliveryPanel= new ManageDeliverManJPanel(userProcessContainer, ecosystem); 
+       userProcessContainer.add("ManageAllCustomers",deliveryPanel);
+       CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+       cardlayout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageAdminActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
