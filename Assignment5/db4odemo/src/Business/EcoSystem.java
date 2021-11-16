@@ -54,4 +54,40 @@ public class EcoSystem extends Organization{
        //
        return false;
     }
+    
+    //Added getters and setters
+    public RestaurantDirectory getRestaurantDirectory() {
+        if (restaurantDirectory==null)
+            this.restaurantDirectory= new RestaurantDirectory();
+        return this.restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public CustomerDirectory getCustomerDirectory() {
+        if(customerDirectory==null)
+            this.customerDirectory = new CustomerDirectory();
+        
+        return this.customerDirectory;
+        
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+        
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        if(deliveryManDirectory==null)
+            this.deliveryManDirectory=new DeliveryManDirectory();
+        return this.deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+    
+    
 }
