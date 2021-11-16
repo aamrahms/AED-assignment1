@@ -60,6 +60,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        userNameJTextField.setEditable(false);
         userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userNameJTextFieldActionPerformed(evt);
