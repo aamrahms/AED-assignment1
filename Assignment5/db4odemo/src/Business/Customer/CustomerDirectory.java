@@ -5,10 +5,69 @@
  */
 package Business.Customer;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
 public class CustomerDirectory {
+    private Customer customer;
+    private ArrayList<Customer> customerDir;
+    
+    //Constructor
+    public CustomerDirectory(ArrayList<Customer> customerDir) {    
+        this.customerDir = new ArrayList<Customer> ();
+    }
+
+    //Check if user exists
+    public Customer getCustomer(String username) {
+        for(Customer c : customerDir)
+        {
+            if(c.getUsername().equalsIgnoreCase(username))
+            {
+                return c;
+            }
+        }
+        return null;
+    }
+    public Customer createCustomer(String name, String username, String password, String address, String phone)
+    {
+        customer=new Customer(name, username, password,address, phone);
+        customerDir.add(customer);
+        return customer;
+    }
+    public void updateCustomer(Customer customer,String name, String username, String password, String address, String phone)
+    {
+        for (Customer c: customerDir)
+        {
+            if(c.getUsername().equalsIgnoreCase(customer.getUsername()))
+            {
+                customer.setName(name);
+                customer.setUsername(username);
+                customer.setAddress(address);
+                customer.setPhone(phone);
+                break;
+            }
+        }
+    }
+    public void deleteCustomer(Customer customer){
+                customerDir.remove(customer);
+        
+    }
+    //Getters and setters
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public ArrayList<Customer> getCustomerDir() {
+        return customerDir;
+    }
+
+    public void setCustomerDir(ArrayList<Customer> customerDir) {
+        this.customerDir = customerDir;
+    }
+    
+    
     
 }
