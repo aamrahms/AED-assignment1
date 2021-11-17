@@ -27,15 +27,17 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     public JPanel userProcessContainer;
     private EcoSystem ecosystem;
     private UserAccount user;
-    private Customer customer;
+    private Customer customer,view,delete,add;
     ArrayList<Customer> customerDir;
     DefaultTableModel md;
     Customer update;
+    
     public ManageAllCustomersJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        //populate();
+        customerDir= this.ecosystem.getCustomerDirectory().getCustomerDir();
+        populateTable();
     }
 
 
@@ -255,17 +257,26 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-//        selectedRow = jTable1.getSelectedRow();
-//        if (selectedRow < 0) {
-//            JOptionPane.showMessageDialog(null, "Please select a row you want to view!!", "Warning", JOptionPane.WARNING_MESSAGE);
-//        }
-//        else{
-//            deletecar=populate.get(selectedRow);
-//            int uniqueID=deletecar.getUniqueID();
-//            fleet.removeCar(uniqueID);
-//            populateTable(fleet);
-//        }
+         //TODO add your handling code here:
+        selectedRow = table.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select an entryyou want to delete!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            
+            int sureDelete =JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this entry?","Warning",JOptionPane.YES_NO_CANCEL_OPTION);
+            if(sureDelete==JOptionPane.YES_OPTION)
+            {
+                delete=customerDir.get(selectedRow);
+                delete.getUsername();
+                ecosystem.getUserAccountDirectory().deleteUserAccount(useraccount);
+                ecosystem.getCustomerDirectory().deleteCustomer(delete);
+            }
+            
+            //int uniqueID=deletecar.getUniqueID();
+            customerDir.removeCar(uniqueID);
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

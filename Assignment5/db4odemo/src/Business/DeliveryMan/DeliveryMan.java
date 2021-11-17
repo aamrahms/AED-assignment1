@@ -21,7 +21,7 @@ public class DeliveryMan {
     private String phone;
     private ArrayList <Order> deliveryOrders;
 
-    public DeliveryMan(String name, String username, String password, String address, String phone, ArrayList<Order> deliveryOrders) {
+    public DeliveryMan(String name, String username, String password, String address, String phone) {
         this.name = name;
         this.username = username;
         this.password = password;
