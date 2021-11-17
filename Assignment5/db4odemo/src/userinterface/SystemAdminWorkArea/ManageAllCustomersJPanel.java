@@ -268,41 +268,41 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
             if(sureDelete==JOptionPane.YES_OPTION)
             {
                 delete=customerDir.get(selectedRow);
-                delete.getUsername();
+                String username=delete.getUsername();
+                String password=delete.getPassword();
+                Customer customerAccount=ecosystem.getCustomerDirectory().getCustomer(username);
+                UserAccount useraccount = ecosystem.getUserAccountDirectory().authenticateUser(username, password);
                 ecosystem.getUserAccountDirectory().deleteUserAccount(useraccount);
                 ecosystem.getCustomerDirectory().deleteCustomer(delete);
             }
             
-            //int uniqueID=deletecar.getUniqueID();
-            customerDir.removeCar(uniqueID);
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-//        checkNotNull();
-//        if (save==1)
-//        {
-//            car = new Car(unique++);
-//            AddCar(car);
-//            fleet.addCar(car);
-//            populateTable(car);
-//            this.clearTextfields();
-//        }
-//        else
-//        {
-//            if(save==2)
-//            {
-//                UpdateCar(Updatecar);
-//                int uniqueID=Updatecar.getUniqueID();
-//                fleet.updateCar(Updatecar, uniqueID);
-//                populateTable(fleet);
-//                this.clearTextfields();
-//            }
-//        }
+        checkNotNull();
+        if (save==1)
+        {
+            ecosystem.getCustomerDirectory().createCustomer(tName.getText(),tUsername.getText(), tPassword.getText(),tAddress.getText(),tPhone.getText());
+            fleet.addCar(car);
+            populateTable(car);
+            this.clearTextfields();
+        }
+        else
+        {
+            if(save==2)
+            {
+                UpdateCar(Updatecar);
+                int uniqueID=Updatecar.getUniqueID();
+                fleet.updateCar(Updatecar, uniqueID);
+                populateTable(fleet);
+                this.clearTextfields();
+            }
+        }
 
-        //btnSave.setEnabled(false);
+        btnSave.setEnabled(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void tUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tUsernameActionPerformed
@@ -334,11 +334,8 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row you want to update!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            update=people.get(selectedRow);
-            populateView(update);
-            populateTable(fleet);
-//            populateView(Updatecar);
-//            populateTable(fleet);
+            update=customerDir.get(selectedRow);
+            populateTable();
         }
  
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -349,7 +346,17 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
-
+    public void checkNotNull(){
+        if(tName.getText().isEmpty() || tUsername.getText().isEmpty() || tPhone.getText().isEmpty() ||tPassword.getText().isEmpty() || tAddress.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(null, "Please enter every field!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        
+        }
+        else
+        {
+            return;
+        }
+    }
     private void clearTextfields() {
 
         tName.setText(null);

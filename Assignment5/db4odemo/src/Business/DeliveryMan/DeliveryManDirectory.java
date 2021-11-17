@@ -16,7 +16,7 @@ public class DeliveryManDirectory {
     DeliveryMan deliveryMan;
     private ArrayList<DeliveryMan> deliveryManList;
     //Constructor
-    public DeliveryManDirectory(ArrayList<DeliveryMan> deliveryManList) {
+    public DeliveryManDirectory() {
         this.deliveryManList = new ArrayList<DeliveryMan>();
     }
     //get delivery man using delivery man's username

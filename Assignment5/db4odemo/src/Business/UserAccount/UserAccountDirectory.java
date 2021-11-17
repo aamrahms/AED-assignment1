@@ -19,7 +19,21 @@ public class UserAccountDirectory {
     public UserAccountDirectory() {
         userAccountList = new ArrayList();
     }
-
+    
+    //adding methods to delete and save user
+    public void deleteUserAccount(UserAccount user)
+    {
+        userAccountList.remove(user);
+    }
+    
+    public void saveUserAccount(UserAccount useraccount,String name, String username, String password)
+    {
+        useraccount.setName(name);
+        useraccount.setUsername(username);
+        useraccount.setPassword(password);
+        
+    }
+    
     public ArrayList<UserAccount> getUserAccountList() {
         return userAccountList;
     }
@@ -49,4 +63,5 @@ public class UserAccountDirectory {
         }
         return true;
     }
+    
 }

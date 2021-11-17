@@ -42,6 +42,18 @@ public class Restaurant {
         listOfOrders.add(order);
         
     }
+     //get one dish
+     public Dish getOneDish(String dishname)
+     {
+         for(Dish dish : listOfDishes)
+         {
+             if(dish.getName().equalsIgnoreCase(dishname))
+             {
+                 return dish;
+             }
+         }
+         return null;
+     }
     
     //getters and setters
 
