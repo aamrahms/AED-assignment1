@@ -9,7 +9,10 @@ import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,10 +23,14 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageCustomersJPanel
      */
+    int save,selectedRow;
     public JPanel userProcessContainer;
     private EcoSystem ecosystem;
     private UserAccount user;
     private Customer customer;
+    ArrayList<Customer> customerDir;
+    DefaultTableModel md;
+    Customer update;
     public ManageAllCustomersJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -53,11 +60,10 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         lblPhone = new javax.swing.JLabel();
         lbl = new javax.swing.JLabel();
         jTableAdmin = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         lblName = new javax.swing.JLabel();
         tName = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
@@ -113,7 +119,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl.setText("Manage Customers");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -129,7 +135,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTableAdmin.setViewportView(jTable1);
+        jTableAdmin.setViewportView(table);
 
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name");
@@ -138,13 +144,6 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
-            }
-        });
-
-        btnView.setText("View");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
             }
         });
 
@@ -201,8 +200,6 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(btnAdd)
-                                .addGap(86, 86, 86)
-                                .addComponent(btnView)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnUpdate)
                                 .addGap(89, 89, 89)
@@ -229,7 +226,6 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnView)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
                 .addGap(32, 32, 32)
@@ -313,40 +309,27 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-//        btnSave.setEnabled(true);
-//        this.clearTextfields();
-//        save=1;
+        btnSave.setEnabled(true);
+        this.clearTextfields();
+        save=1;
     }//GEN-LAST:event_btnAddActionPerformed
-
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        // TODO add your handling code here:
-//        selectedRow = jTable1.getSelectedRow();
-//        if (selectedRow < 0) {
-//            JOptionPane.showMessageDialog(null, "Please select a row you want to view!!", "Warning", JOptionPane.WARNING_MESSAGE);
-//        }
-//        else{
-//            car=populate.get(selectedRow);
-//            populateView(car);
-//
-//        }
-
-    }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-//        btnSave.setEnabled(true);
-//        save=2;
-//        selectedRow = jTable1.getSelectedRow();
-//        if (selectedRow < 0) {
-//            JOptionPane.showMessageDialog(null, "Please select a row you want to view!!", "Warning", JOptionPane.WARNING_MESSAGE);
-//        }
-//        else{
-//            Updatecar=populate.get(selectedRow);
+        btnSave.setEnabled(true);
+        save=2;
+        selectedRow = table.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row you want to update!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            update=people.get(selectedRow);
+            populateView(update);
+            populateTable(fleet);
 //            populateView(Updatecar);
 //            populateTable(fleet);
-//
-//        }
-
+        }
+ 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -356,15 +339,47 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void clearTextfields() {
 
+        tName.setText(null);
+        tAddress.setText(null);
+        tPassword.setText(null);
+        tUsername.setText(null);
+        tPhone.setText(null);
+    }
+    private void populateView(Customer c) {
+        
+       tName.setText(c.getName());
+       tPassword.setText(c.getPassword());
+       tPhone.setText(c.getPhone());
+       tUsername.setText(c.getUsername());
+       tAddress.setText(c.getAddress());
+       
+    }
+    public void populateTable(){
+        
+        md=(DefaultTableModel)table.getModel();
+        md.setRowCount(0);
+        Object row[]= new Object[5];
+        customerDir= this.ecosystem.getCustomerDirectory().getCustomerDir();
+        for(Customer c : customerDir)
+        {
+            
+            row[0]=c.getName();
+            row[1]=c.getUsername();
+            row[2]=c.getPassword();
+            row[3]=c.getAddress();
+            row[4]=c.getPhone();
+            md.addRow(row);
+                   
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btnView;
-    private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane jTableAdmin;
     private javax.swing.JLabel lbl;
     private javax.swing.JLabel lblAddress;
@@ -377,5 +392,6 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField tPassword;
     private javax.swing.JTextField tPhone;
     private javax.swing.JTextField tUsername;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

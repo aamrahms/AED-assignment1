@@ -16,7 +16,7 @@ public class CustomerDirectory {
     private ArrayList<Customer> customerDir;
     
     //Constructor
-    public CustomerDirectory(ArrayList<Customer> customerDir) {    
+    public CustomerDirectory() {    
         this.customerDir = new ArrayList<Customer> ();
     }
 
@@ -31,12 +31,14 @@ public class CustomerDirectory {
         }
         return null;
     }
+    //creating customer
     public Customer createCustomer(String name, String username, String password, String address, String phone)
     {
         customer=new Customer(name, username, password,address, phone);
         customerDir.add(customer);
         return customer;
     }
+    //updating customer profile
     public void updateCustomer(Customer customer,String name, String username, String password, String address, String phone)
     {
         for (Customer c: customerDir)
@@ -51,6 +53,7 @@ public class CustomerDirectory {
             }
         }
     }
+    //deleting customer from dir
     public void deleteCustomer(Customer customer){
                 customerDir.remove(customer);
         
