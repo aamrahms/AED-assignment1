@@ -33,13 +33,14 @@ public class Restaurant {
     }
     
     //add order to listoforders
-     public void addOrder(String orderId,String restaurantName,String customerName, String deliverymanName,String price, String status, ArrayList<Dish> listOfDishes,String deliveryAddress){
-        Order order=new Order(orderId,restaurantName,customerName,deliverymanName,price,"New Order",listOfDishes,deliveryAddress);
+     public Order addOrder(String restaurantName,String customerName, String deliverymanName,String price, String status, ArrayList<Dish> listOfDishes,String deliveryAddress){
+        Order order=new Order(restaurantName,customerName,deliverymanName,price,"New Order",listOfDishes,deliveryAddress);
         if(listOfOrders==null)
         {
             listOfOrders=new ArrayList<Order>();
         }
         listOfOrders.add(order);
+        return order;
         
     }
      //get one dish

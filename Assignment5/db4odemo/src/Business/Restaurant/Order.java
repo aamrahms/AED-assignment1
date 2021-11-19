@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author aamrah
  */
 public class Order {
-    String orderId; 
+    int orderId; 
     String restaurantName;
     String customerName; 
     String deliverymanName; 
@@ -20,9 +20,10 @@ public class Order {
     String status; 
     ArrayList<Dish> listOfDishes; 
     String deliveryAddress;
+    private static int count=0;
     //Constructor
-    public Order(String orderId, String restaurantName, String customerName, String deliverymanName, String price, String status, ArrayList<Dish> listOfDishes, String deliveryAddress) {
-        this.orderId = orderId;
+    public Order( String restaurantName, String customerName, String deliverymanName, String price, String status, ArrayList<Dish> listOfDishes, String deliveryAddress) {
+        this.orderId = count++;
         this.restaurantName = restaurantName;
         this.customerName = customerName;
         this.deliverymanName = deliverymanName;
@@ -34,13 +35,11 @@ public class Order {
     
     //getters and setters
 
-    public String getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
+    
 
     public String getRestaurantName() {
         return restaurantName;
@@ -100,6 +99,6 @@ public class Order {
     
     @Override
     public String toString(){
-        return orderId;
+        return String.valueOf(orderId);
     }
 }

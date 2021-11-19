@@ -12,13 +12,12 @@ package Business.Restaurant;
 public class Dish {
     private String name;
     private String price;
-    private String description;
+    
     
     //Constructor
-    public Dish(String name, String price, String description) {
+    public Dish(String name, String price) {
         this.name = name;
         this.price = price;
-        this.description = description;
     }
     
     //getters and setters
@@ -39,13 +38,8 @@ public class Dish {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
-    }
+  
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
     
     @Override
     public String toString()

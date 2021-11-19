@@ -32,7 +32,7 @@ public class DeliveryMan {
     //add order to deliveryOrders
     
     public void addOrder(String orderId,String restaurantName,String customerName, String deliverymanName,String price, String status, ArrayList<Dish> listOfDishes,String deliveryAddress){
-        Order order=new Order(orderId,restaurantName,customerName,deliverymanName,price,"New Order",listOfDishes,deliveryAddress);
+        Order order=new Order(restaurantName,customerName,deliverymanName,price,"New Order",listOfDishes,deliveryAddress);
         if(deliveryOrders==null)
         {
             deliveryOrders=new ArrayList<Order>();

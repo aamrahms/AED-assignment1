@@ -23,8 +23,8 @@ public class DeliveryManDirectory {
     public DeliveryMan getDeliveryMan(String deliveryusername){
         for(DeliveryMan d : deliveryManList)
         {
-            d.getUsername().equalsIgnoreCase(deliveryusername);
-            return d;
+            if(d.getUsername().equalsIgnoreCase(deliveryusername))
+                return d;
         }
         
         return null;
@@ -43,10 +43,11 @@ public class DeliveryManDirectory {
         {
             if(delivery.getUsername().equalsIgnoreCase(username))
             {
-                deliveryMan.setUsername(username);
-                deliveryMan.setName(name);
-                deliveryMan.setAddress(address);
-                deliveryMan.setPhone(phone);
+                deliveryman.setUsername(username);
+                deliveryman.setName(name);
+                deliveryman.setPassword(password);
+                deliveryman.setAddress(address);
+                deliveryman.setPhone(phone);
                 break;
             }
         }

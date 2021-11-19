@@ -37,7 +37,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(255, 102, 0));
         setForeground(new java.awt.Color(204, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

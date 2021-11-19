@@ -4,6 +4,8 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.EcoSystem;
+import Business.Restaurant.Order;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -20,7 +22,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer, Order order, EcoSystem ecosystem) {
         initComponents();
         
     }
@@ -39,6 +41,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         resultJTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 153));
         setForeground(new java.awt.Color(255, 255, 153));
 
         submitJButton.setText("Submit Result");

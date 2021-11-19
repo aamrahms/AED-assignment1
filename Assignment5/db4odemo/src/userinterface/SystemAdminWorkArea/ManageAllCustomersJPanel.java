@@ -7,6 +7,7 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 0, 0));
+        setBackground(new java.awt.Color(255, 153, 153));
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +117,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         lblPhone.setForeground(new java.awt.Color(255, 255, 255));
         lblPhone.setText("Phone");
 
+        lbl.setBackground(new java.awt.Color(255, 153, 153));
         lbl.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
         lbl.setForeground(new java.awt.Color(255, 255, 255));
         lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -179,7 +181,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
+                                                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                                                 .addGap(199, 199, 199))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,7 +208,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                                 .addComponent(btnUpdate)
                                 .addGap(89, 89, 89)
                                 .addComponent(btnDelete)))
-                        .addGap(62, 62, 62))
+                        .addGap(71, 71, 71))
                     .addComponent(jTableAdmin, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -283,21 +285,46 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         checkNotNull();
+        String strtel=tPhone.getText();
+        
+        if (!strtel.matches("^\\d{10}$"))
+        {
+            JOptionPane.showMessageDialog(null, "Please enter a 10 digit telephone number!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         if (save==1)
         {
-            ecosystem.getCustomerDirectory().createCustomer(tName.getText(),tUsername.getText(), tPassword.getText(),tAddress.getText(),tPhone.getText());
-            fleet.addCar(car);
-            populateTable(car);
-            this.clearTextfields();
+            if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(tUsername.getText()))
+            {
+                //user account creation
+                user=ecosystem.getUserAccountDirectory().createUserAccount(tUsername.getText(),tPassword.getText(), null, new CustomerRole());
+                //customer creation
+                customer=ecosystem.getCustomerDirectory().createCustomer(tName.getText(),tUsername.getText(), tPassword.getText(),tAddress.getText(),tPhone.getText());
+                populateTable();
+                this.clearTextfields();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Username already exists!Please try another username!", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            
         }
         else
         {
             if(save==2)
             {
-                UpdateCar(Updatecar);
-                int uniqueID=Updatecar.getUniqueID();
-                fleet.updateCar(Updatecar, uniqueID);
-                populateTable(fleet);
+                //user account updation
+                user=ecosystem.getUserAccountDirectory().authenticateUser(tUsername.getText(), update.getPassword());
+                //save user account
+                ecosystem.getUserAccountDirectory().saveUserAccount(user, tName.getText(), tUsername.getText(), tPassword.getText());
+                //get customer account 
+                customer=ecosystem.getCustomerDirectory().getCustomer(tUsername.getText());
+                //update customer account
+                ecosystem.getCustomerDirectory().updateCustomer(customer, tName.getText(), tUsername.getText(), tPassword.getText(), tAddress.getText(), tPhone.getText());
+               
+                populateTable();
                 this.clearTextfields();
             }
         }
@@ -335,7 +362,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         }
         else{
             update=customerDir.get(selectedRow);
-            populateTable();
+            populateView(update);
         }
  
     }//GEN-LAST:event_btnUpdateActionPerformed

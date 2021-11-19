@@ -5,8 +5,16 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
+import Business.Role.AdminRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,13 +25,23 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageRestaurantsJPanel
      */
-    public ManageRestaurantsJPanel() {
+    int save,selectedRow;
+    public JPanel userProcessContainer;
+    private EcoSystem ecosystem;
+    private UserAccount user;
+    private Restaurant restaurant,view,delete,add;
+    ArrayList<Restaurant> restaurantDir;
+    DefaultTableModel md;
+    Restaurant update;
+    public ManageRestaurantsJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.ecosystem=ecosystem;
+        restaurantDir= this.ecosystem.getRestaurantDirectory().getListOfRestaurants();
+        populateTable();
     }
 
-    ManageRestaurantsJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,19 +52,389 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblUsername = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        lblPassword = new javax.swing.JLabel();
+        lblAddress = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        lbl = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
+        jTableAdmin = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        btnSave = new javax.swing.JButton();
+        tUsername = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        tPassword = new javax.swing.JTextField();
+        tName = new javax.swing.JTextField();
+        tAddress = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
+        tPhone = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 102, 0));
+
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Username");
+
+        btnBack.setText("<- Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Password");
+
+        lblAddress.setForeground(new java.awt.Color(255, 255, 255));
+        lblAddress.setText("Address");
+
+        lblPhone.setForeground(new java.awt.Color(255, 255, 255));
+        lblPhone.setText("Phone");
+
+        lbl.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        lbl.setForeground(new java.awt.Color(255, 255, 255));
+        lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl.setText("Manage Restaurants");
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "UserName", "Password", "Address", "Phone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableAdmin.setViewportView(table);
+
+        btnSave.setText("Save");
+        btnSave.setEnabled(false);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        tUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tUsernameActionPerformed(evt);
+            }
+        });
+
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setText("Name");
+
+        tPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tPasswordActionPerformed(evt);
+            }
+        });
+
+        tAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tAddressActionPerformed(evt);
+            }
+        });
+
+        btnAdd.setText("Add ");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(199, 199, 199))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(205, 205, 205)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(199, 199, 199)
+                                        .addComponent(tPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSave))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(btnAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUpdate)
+                                .addGap(89, 89, 89)
+                                .addComponent(btnDelete)))
+                        .addGap(62, 62, 62))
+                    .addComponent(jTableAdmin, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack))
+                .addGap(31, 31, 31)
+                .addComponent(jTableAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsername))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPassword)
+                    .addComponent(tPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddress)
+                    .addComponent(tAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(btnSave)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        //TODO add your handling code here:
+        selectedRow = table.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select an entryyou want to delete!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+
+            int sureDelete =JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this entry?","Warning",JOptionPane.YES_NO_CANCEL_OPTION);
+            if(sureDelete==JOptionPane.YES_OPTION)
+            {
+                delete=restaurantDir.get(selectedRow);
+                String username=delete.getUsername();
+                String password=delete.getPassword();
+                Restaurant restaurantAccount=ecosystem.getRestaurantDirectory().getRestaurant(username);
+                UserAccount useraccount = ecosystem.getUserAccountDirectory().authenticateUser(username, password);
+                ecosystem.getUserAccountDirectory().deleteUserAccount(useraccount);
+                ecosystem.getRestaurantDirectory().deleteRestaurant(delete);
+            }
+
+            populateTable();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        checkNotNull();
+        String strtel=tPhone.getText();
+
+        if (!strtel.matches("^\\d{10}$"))
+        {
+            JOptionPane.showMessageDialog(null, "Please enter a 10 digit telephone number!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (save==1)
+        {
+            if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(tUsername.getText()))
+            {
+                //user account creation
+                user=ecosystem.getUserAccountDirectory().createUserAccount(tUsername.getText(),tPassword.getText(), null, new AdminRole());
+                //Restaurant creation
+                restaurant=ecosystem.getRestaurantDirectory().createRestaurant(tName.getText(),tUsername.getText(), tPassword.getText(),tAddress.getText(),tPhone.getText());
+                populateTable();
+                this.clearTextfields();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Username already exists!Please try another username!", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+        }
+        else
+        {
+            if(save==2)
+            {
+                //user account updation
+                user=ecosystem.getUserAccountDirectory().authenticateUser(tUsername.getText(), update.getPassword());
+                //save user account
+                ecosystem.getUserAccountDirectory().saveUserAccount(user, tName.getText(), tUsername.getText(), tPassword.getText());
+                //get Restaurant account
+                restaurant=ecosystem.getRestaurantDirectory().getRestaurant(tUsername.getText());
+                //update Restaurant account
+                ecosystem.getRestaurantDirectory().updateRestaurant(restaurant, tName.getText(), tUsername.getText(), tPassword.getText(), tAddress.getText(), tPhone.getText());
+
+                populateTable();
+                this.clearTextfields();
+            }
+        }
+
+        btnSave.setEnabled(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void tUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tUsernameActionPerformed
+
+    private void tPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tPasswordActionPerformed
+
+    private void tAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tAddressActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        btnSave.setEnabled(true);
+        this.clearTextfields();
+        save=1;
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        btnSave.setEnabled(true);
+        save=2;
+        selectedRow = table.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row you want to update!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            update=restaurantDir.get(selectedRow);
+            populateView(update);
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+    public void checkNotNull(){
+        if(tName.getText().isEmpty() || tUsername.getText().isEmpty() || tPhone.getText().isEmpty() ||tPassword.getText().isEmpty() || tAddress.getText().isEmpty() )
+        {
+            JOptionPane.showMessageDialog(null, "Please enter every field!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        
+        }
+        else
+        {
+            return;
+        }
+    }
+    private void clearTextfields() {
+
+        tName.setText(null);
+        tAddress.setText(null);
+        tPassword.setText(null);
+        tUsername.setText(null);
+        tPhone.setText(null);
+    }
+    private void populateView(Restaurant c) {
+        
+       tName.setText(c.getName());
+       tPassword.setText(c.getPassword());
+       tPhone.setText(c.getPhone());
+       tUsername.setText(c.getUsername());
+       tAddress.setText(c.getAddress());
+       
+    }
+    public void populateTable(){
+        
+        md=(DefaultTableModel)table.getModel();
+        md.setRowCount(0);
+        Object row[]= new Object[5];
+        restaurantDir= this.ecosystem.getRestaurantDirectory().getListOfRestaurants();
+        for(Restaurant c : restaurantDir)
+        {
+            
+            row[0]=c.getName();
+            row[1]=c.getUsername();
+            row[2]=c.getPassword();
+            row[3]=c.getAddress();
+            row[4]=c.getPhone();
+            md.addRow(row);
+                   
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JScrollPane jTableAdmin;
+    private javax.swing.JLabel lbl;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JTextField tAddress;
+    private javax.swing.JTextField tName;
+    private javax.swing.JTextField tPassword;
+    private javax.swing.JTextField tPhone;
+    private javax.swing.JTextField tUsername;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

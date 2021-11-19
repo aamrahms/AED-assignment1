@@ -47,6 +47,7 @@ public class CustomerDirectory {
             {
                 customer.setName(name);
                 customer.setUsername(username);
+                customer.setPassword(password);
                 customer.setAddress(address);
                 customer.setPhone(phone);
                 break;
