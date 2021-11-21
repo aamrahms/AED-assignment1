@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * @author aamrah
  */
 public class Order {
-    int orderId; 
-    String restaurantName;
-    String customerName; 
-    String deliverymanName; 
-    String price; 
-    String status; 
-    ArrayList<Dish> listOfDishes; 
-    String deliveryAddress;
+    private int orderId; 
+    private String restaurantName;
+    private String customerName; 
+    private String deliverymanName; 
+    private String price; 
+    private String status; 
+    private ArrayList<Dish> listOfDishes; 
+    private String deliveryAddress;
     private static int count=0;
     //Constructor
     public Order( String restaurantName, String customerName, String deliverymanName, String price, String status, ArrayList<Dish> listOfDishes, String deliveryAddress) {

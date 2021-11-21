@@ -148,6 +148,8 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Menu);
 
+        tTotal.setEnabled(false);
+
         jLabel3.setText("Total Price ");
 
         btnBack.setText("<- Go Back");
@@ -217,7 +219,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         int selectedRow =Menu.getSelectedRow();
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a restaurant!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select a dish!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
             
@@ -232,7 +234,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         Customer customer=ecosystem.getCustomerDirectory().getCustomer(userAccount.getUsername());
-        Order order=restaurant.addOrder(restaurant.getName() ,userAccount.getName(),null ,String.valueOf(tTotal) , "New Order", cart,customer.getAddress() );
+        Order order=restaurant.addOrder(restaurant.getName() ,customer.getName(),null ,tTotal.getText() , "New Order", cart,customer.getAddress() );
         customer.addOrder(order);
         JOptionPane.showMessageDialog(this, "Order Placed!");
         cartTable.setRowCount(0);

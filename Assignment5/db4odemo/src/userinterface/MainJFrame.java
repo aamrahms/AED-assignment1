@@ -144,6 +144,7 @@ public class MainJFrame extends javax.swing.JFrame {
             container.add("Login",user.getRole().createWorkArea(container, user, system));
             cardlayout.next(container);
             logoutJButton.setEnabled(true);
+            loginJButton.setEnabled(false);
         }
         catch(NullPointerException e)
         {
@@ -171,6 +172,7 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);
+        loginJButton.setEnabled(true);
         }
         catch(NullPointerException e)
         {
