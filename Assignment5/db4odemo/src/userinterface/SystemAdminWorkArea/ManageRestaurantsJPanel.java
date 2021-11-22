@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
+import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -33,10 +34,13 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
     ArrayList<Restaurant> restaurantDir;
     DefaultTableModel md;
     Restaurant update;
+    UserAccountDirectory users;
     public ManageRestaurantsJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
+         users=ecosystem.getUserAccountDirectory();
+        this.users=users;
         restaurantDir= this.ecosystem.getRestaurantDirectory().getListOfRestaurants();
         populateTable();
     }
@@ -279,7 +283,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
                 delete=restaurantDir.get(selectedRow);
                 String username=delete.getUsername();
                 String password=delete.getPassword();
-                Restaurant restaurantAccount=ecosystem.getRestaurantDirectory().getRestaurant(username);
+                //Restaurant restaurantAccount=ecosystem.getRestaurantDirectory().getRestaurant(username);
                 UserAccount useraccount = ecosystem.getUserAccountDirectory().authenticateUser(username, password);
                 ecosystem.getUserAccountDirectory().deleteUserAccount(useraccount);
                 ecosystem.getRestaurantDirectory().deleteRestaurant(delete);
@@ -322,7 +326,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
             if(save==2)
             {
                 //user account updation
-                user=ecosystem.getUserAccountDirectory().authenticateUser(tUsername.getText(), update.getPassword());
+                user=ecosystem.getUserAccountDirectory().authenticateUser(update.getUsername(), tPassword.getText());
                 //save user account
                 ecosystem.getUserAccountDirectory().saveUserAccount(user, tName.getText(), tUsername.getText(), tPassword.getText());
                 //get Restaurant account
@@ -403,7 +407,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         md=(DefaultTableModel)table.getModel();
         md.setRowCount(0);
         Object row[]= new Object[5];
-        restaurantDir= this.ecosystem.getRestaurantDirectory().getListOfRestaurants();
+        //restaurantDir= this.ecosystem.getRestaurantDirectory().getListOfRestaurants();
         for(Restaurant c : restaurantDir)
         {
             
